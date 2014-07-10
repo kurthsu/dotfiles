@@ -13,6 +13,16 @@ if !filereadable(vundle_readme)
   let iCanHazVundle=0
 endif
 
+let hasMolokai=1
+let molokai_readme=expand('~/dotfiles/vim/colors/molokai.vim')
+if !filereadable(molokai_readme)
+  echo 'Installing Molokai..'
+  silent !git clone https://github.com/tomasr/molokai
+  silent !mv molokai/colors/ ~/dotfiles/vim
+  silent !rm -Rf molokai
+  let hasMolokai=0
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -90,7 +100,7 @@ set showmatch                " Cursor shows matching ) and }
 set showmode                 " Show current mode
 set backspace=2              " make backspace work like most other apps
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
-colorscheme molokai	     " set colorscheme
+colorscheme molokai	         " set colorscheme
 
 " key mapping
 nmap - $
