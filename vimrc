@@ -8,8 +8,8 @@ let vundle_readme=expand('~/dotfiles/vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  silent !mkdir -p ~/dotfiles/vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/dotfiles/vim/bundle/vundle
   let iCanHazVundle=0
 endif
 
