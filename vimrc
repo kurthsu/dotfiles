@@ -38,7 +38,6 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-gitgutter'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle 'Townk/vim-autoclose'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
