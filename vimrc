@@ -57,7 +57,14 @@ let g:PyFlakeOnWrite = 1
 let g:PyFlakeDefaultComplexity=10
 let g:PyFlakeRangeCommand = 'Q'
 let g:pyflakes_use_quickfix=0
+
+" function keys mapping
 autocmd FileType python map <buffer> <F3> :call flake8#run()<CR>
+let g:jedi#rename_command = "<F4>"
+map <F5> :TComment<cr>  " comment lines with cmd+/
+vmap <F5> :TComment<cr>gv
+nmap <F8> :TagbarToggle<CR> " --- tagbar
+map <F9> :NERDTreeToggle<CR> " open sidebar with cmd+k
 
 " jedi-vim
 let g:jedi#goto_assignments_command = "<leader>g"
@@ -65,7 +72,6 @@ let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<leader>c"
-let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"
 
 " folding
@@ -74,7 +80,15 @@ set foldmethod=indent
 set foldnestmax=2
 nnoremap <space> za
 vnoremap <space> zf
-    
+
+" key mapping
+nmap - $
+map <C-n> :tabnext<CR>
+nmap <C-t> :tabnew<cr>
+imap <C-t> <ESC>:tabnew<cr>
+" nmap <C-w> :tabclose<CR>
+set tabpagemax=1000
+
 " general
 filetype plugin indent on    " enable filetype-specific plugins
 set number                   " enable line numbers
@@ -100,14 +114,6 @@ set showmode                 " Show current mode
 set backspace=2              " make backspace work like most other apps
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 colorscheme molokai	         " set colorscheme
-
-" key mapping
-nmap - $
-map <C-n> :tabnext<CR>
-nmap <C-t> :tabnew<cr>
-imap <C-t> <ESC>:tabnew<cr>
-" nmap <C-w> :tabclose<CR>
-set tabpagemax=1000
 
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
 " http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTinkbdoZ8eNR1X2UobLTeww1jFrvfJxTMfKSq-L%2B%40mail.gmail.com&forum_name=tmux-users
@@ -142,17 +148,10 @@ cnoremap <C-A>      <Home>
 cnoremap <C-E>      <End>
 cnoremap <C-K>      <C-U>
 
-" open sidebar with cmd+k
-map <D-k> :NERDTreeToggle<CR>
-
 " encoding settings
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-
-" comment lines with cmd+/
-map <D-/> :TComment<cr>
-vmap <D-/> :TComment<cr>gv
 
 " status line {
 set laststatus=2
@@ -163,9 +162,6 @@ let g:Powerline_symbols = 'fancy' " require fontpatcher
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
 highlight clear SignColumn " For the same appearance as your line number column
-
-" --- tagbar
-nmap <D-\> :TagbarToggle<CR>
 
 " --- ctrlp
 let g:ctrlp_dont_split = 'NERD_tree_2'
