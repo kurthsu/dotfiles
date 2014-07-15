@@ -93,8 +93,8 @@ set tabpagemax=1000
 filetype plugin indent on    " enable filetype-specific plugins
 set number                   " enable line numbers
 set autoindent               " enable autoindent
-set expandtab                " use space instead of tab
-set tabstop=4                " insert 2 spaces for a tab
+" set expandtab                " use space instead of tab
+" set tabstop=4                " insert 2 spaces for a tab
 set shiftwidth=4             " the number of space characters inserted for indentation
 syntax on                    " enable syntax highlighting
 set autoread                 " auto read when file is changed from outside
@@ -113,8 +113,9 @@ set showmatch                " Cursor shows matching ) and }
 set showmode                 " Show current mode
 set backspace=2              " make backspace work like most other apps
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
-colorscheme molokai	         " set colorscheme
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<list
+" colorscheme molokai	         " set colorscheme
+set list listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+hi NonText ctermfg=8 guifg=gray
 
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
 " http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTinkbdoZ8eNR1X2UobLTeww1jFrvfJxTMfKSq-L%2B%40mail.gmail.com&forum_name=tmux-users
