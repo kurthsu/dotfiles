@@ -114,6 +114,7 @@ set showmode                 " Show current mode
 set backspace=2              " make backspace work like most other apps
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 colorscheme molokai	         " set colorscheme
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<list
 
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
 " http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTinkbdoZ8eNR1X2UobLTeww1jFrvfJxTMfKSq-L%2B%40mail.gmail.com&forum_name=tmux-users
