@@ -57,3 +57,6 @@ fi
 
 install_zsh
 
+# Install lib for ctags
+apt-get install exuberant-ctags
+
