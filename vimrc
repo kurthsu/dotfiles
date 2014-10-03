@@ -51,6 +51,20 @@ Bundle 'fholgado/minibufexpl.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'andviro/flake8-vim'
 
+" repos for javascripts
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'marijnh/tern_for_vim'
+
+" These are the tweaks I apply to YCM's config, you don't need them but they might help.
+" YCM gives you popups and splits by default that some people might not like, so these should tidy it up a bit for you.
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+
 " pep8
 let g:flake8_ignore="E501"
 let g:PyFlakeOnWrite = 1
@@ -115,7 +129,9 @@ set backspace=2              " make backspace work like most other apps
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set list listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 hi NonText ctermfg=8 guifg=gray
-" colorscheme molokai	         " set colorscheme
+set t_Co=256
+" colorscheme distinguished    " set colorscheme
+" colorscheme molokai            " set colorscheme
 "
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
 " http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTinkbdoZ8eNR1X2UobLTeww1jFrvfJxTMfKSq-L%2B%40mail.gmail.com&forum_name=tmux-users
