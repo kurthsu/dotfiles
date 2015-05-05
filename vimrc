@@ -45,11 +45,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
-Bundle "davidhalter/jedi-vim"
 Bundle 'sjl/gundo.vim'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'andviro/flake8-vim'
 
 " repos for javascripts
 Bundle 'jelera/vim-javascript-syntax'
@@ -64,29 +61,12 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
-
-" pep8
-let g:flake8_ignore="E501"
-let g:PyFlakeOnWrite = 1
-let g:PyFlakeDefaultComplexity=10
-let g:PyFlakeRangeCommand = 'Q'
-let g:pyflakes_use_quickfix=0
-
 " function keys mapping
 autocmd FileType python map <buffer> <F3> :call flake8#run()<CR>
-let g:jedi#rename_command = "<F4>"
 map <F5> :TComment<cr>  " comment lines with cmd+/
 vmap <F5> :TComment<cr>gv
 nmap <F8> :TagbarToggle<CR> " --- tagbar
 map <F9> :NERDTreeToggle<CR> " open sidebar with cmd+k
-
-" jedi-vim
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<leader>c"
-let g:jedi#show_call_signatures = "1"
 
 " folding
 set foldenable 
@@ -107,8 +87,8 @@ set tabpagemax=1000
 filetype plugin indent on    " enable filetype-specific plugins
 set number                   " enable line numbers
 set autoindent               " enable autoindent
-" set expandtab                " use space instead of tab
-" set tabstop=4                " insert 2 spaces for a tab
+set expandtab                " use space instead of tab
+set tabstop=4                " insert 2 spaces for a tab
 set shiftwidth=4             " the number of space characters inserted for indentation
 syntax on                    " enable syntax highlighting
 set autoread                 " auto read when file is changed from outside
