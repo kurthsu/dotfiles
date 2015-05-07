@@ -46,7 +46,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 Bundle 'sjl/gundo.vim'
-Bundle 'fholgado/minibufexpl.vim'
+" Bundle 'fholgado/minibufexpl.vim'
 
 " repos for javascripts
 Bundle 'jelera/vim-javascript-syntax'
@@ -69,19 +69,26 @@ nmap <F8> :TagbarToggle<CR> " --- tagbar
 map <F9> :NERDTreeToggle<CR> " open sidebar with cmd+k
 
 " folding
-set foldenable 
+set foldenable
 set foldmethod=indent
 set foldnestmax=2
 nnoremap <space> za
 vnoremap <space> zf
 
-" key mapping
-nmap - $
-map <C-n> :tabnext<CR>
-nmap <C-t> :tabnew<cr>
-imap <C-t> <ESC>:tabnew<cr>
-" nmap <C-w> :tabclose<CR>
-set tabpagemax=1000
+" tab management
+nmap t1 1gt
+nmap t2 2gt
+nmap t3 3gt
+nmap t4 4gt
+nmap t5 5gt
+nmap t6 6gt
+nmap t7 7gt
+nmap t8 8gt
+nmap t9 9gt
+nmap tn :tabn<CR>
+nmap tp :tabp<CR>
+nmap tt :tabnew<CR>
+nmap tw :tabclose<CR>
 
 " general
 filetype plugin indent on    " enable filetype-specific plugins
