@@ -34,7 +34,7 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -93,7 +93,6 @@ set shiftwidth=4             " the number of space characters inserted for inden
 syntax on                    " enable syntax highlighting
 set autoread                 " auto read when file is changed from outside
 set history=50               " keep 50 lines of command line history
-set mouse=a                  " mouse support
 if has("gui_running")        " GUI color and font settings
   set guifont=Monaco:h14
   set t_Co=256               " 256 color mode
@@ -106,7 +105,6 @@ set clipboard=unnamed        " yank to the system register (*) by default
 set showmatch                " Cursor shows matching ) and }
 set showmode                 " Show current mode
 set backspace=2              " make backspace work like most other apps
-set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set list listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 hi NonText ctermfg=8 guifg=gray
 set t_Co=256
@@ -123,6 +121,12 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" mouse settings
+set mouse=a                  " mouse support
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 " disable sound on errors
 set noeb vb t_vb=
 
@@ -154,8 +158,10 @@ set fileencoding=utf-8
 " status line {
 set laststatus=2
 
-" --- PowerLine
-let g:Powerline_symbols = 'fancy' " require fontpatcher
+" airline settings
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_warning = ''
 
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
