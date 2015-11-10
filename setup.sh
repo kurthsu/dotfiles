@@ -6,7 +6,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+files="bashrc vimrc vim tmux.conf zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -55,7 +55,7 @@ else
 fi
 }
 
-install_zsh
+# install_zsh
 
 # Install lib for ctags
 apt-get install exuberant-ctags
