@@ -36,8 +36,8 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
@@ -129,7 +129,7 @@ else
 endif
 
 " mouse settings
-set mouse=a                  " mouse support
+set mouse=r                  " mouse support
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
