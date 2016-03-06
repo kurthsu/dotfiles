@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim tmux.conf zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+files="bashrc vim tmux.conf zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
 # ================= Functions ====================
 install_zsh () {
@@ -50,16 +50,19 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
-# install oh-my-zsh and 
+# install oh-my-zsh and
 install_zsh
 
 # Clone my vimrc repository from GitHub only if it isn't already present
 if [[ ! -d $dir/vim/ ]]; then
     git clone https://github.com/kurthsu/vimrc.git $dir/vim
 fi
-cp $dir/vim/vimrc $dir/vimrc
+git submodule update --init --recursive
+mv ~/.vimrc ~/dotfiles_old/
+echo "Creating symlink to vimrc in home directory."
+ln -s $dir/vim/vimrc ~/.vimrc
 
-# move any existing dotfiles in homedir to dotfiles_old directory, 
+# move any existing dotfiles in homedir to dotfiles_old directory,
 # then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
@@ -70,4 +73,3 @@ done
 
 # Install lib for ctags
 apt-get install exuberant-ctags
-
