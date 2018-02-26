@@ -53,9 +53,9 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH:/usr/local/bin
 # export MANPATH="/usr/local/man:$MANPATH"
-
+export OPENGROK_TOMCAT_BASE=/usr/local/Cellar/tomcat/8.5.8/libexec
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -82,3 +82,77 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="/usr/local/opt/nvm"
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/.rvm/bin:$GOPATH/bin
+# export ANT_HOME=/usr/local/ant
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export PATH=$PATH:$ANT_HOME/bin
+
+export UMLET_HOME="/Users/kurt/software/Umlet"
+
+# Aliases
+alias g='git'
+
+alias ga='git add'
+alias gaa='git add --all'
+
+alias gb='git branch'
+
+alias gc='git commit -v'
+alias gcm='git commit -m'
+alias gc!='git commit -v --amend'
+alias gca!='git commit -v -a --amend'
+
+alias gco='git checkout'
+alias gcb='git checkout -b'
+
+alias gcp='git cherry-pick'
+
+alias gcl='git clone --recursive'
+
+alias gd='git diff'
+alias gdc='git diff --cached'
+
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+
+alias gre='git rebase'
+alias grea='git rebase --abort'
+alias grec='git rebase --continue'
+alias grei='git rebase -i'
+
+alias gpl='git pull'
+alias gps='git push'
+
+alias glg='git log --stat --color'
+alias glgg='git log --graph --color'
+
+alias grh='git reset HEAD'
+alias grhh='git reset HEAD --hard'
+
+alias gs='git status'
+
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash show --text'
+
+alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
+
+alias gls='git log --shortstat --author="Kurt Hsu" | \
+  grep -E "fil(e|es) changed" | awk '\''{files+=$1; inserted+=$4; deleted+=$6; delta+=$4-$6; ratio=deleted/inserted} END \
+  {printf "Commit stats:\n- Files changed (total)..  %s\
+  - Lines added (total)....  %s\
+  - Lines deleted (total)..  %s\
+  - Total lines (delta)....  %s\
+  - Add./Del. ratio (1:n)..  1 : %s\n", files, inserted, deleted, delta, ratio }'\'' - '
